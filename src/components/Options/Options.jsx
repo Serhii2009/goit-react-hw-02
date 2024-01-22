@@ -1,4 +1,4 @@
-export const Options = ({ onFeedback }) => {
+export const Options = ({ onFeedback, onReset, hasFeedback }) => {
   return (
     <div>
       <button className="list-buttons" onClick={() => onFeedback("good")}>
@@ -10,6 +10,12 @@ export const Options = ({ onFeedback }) => {
       <button className="list-buttons" onClick={() => onFeedback("bad")}>
         Bad
       </button>
+
+      {hasFeedback > 0 && (
+        <button className="list-buttons" onClick={onReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };

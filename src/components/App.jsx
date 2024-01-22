@@ -18,6 +18,17 @@ export const App = () => {
     }));
   };
 
+  const handleReset = () => {
+    setFeedbackTypes({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
+  const totalFeedback =
+    feedbackTypes.good + feedbackTypes.neutral + feedbackTypes.bad;
+
   return (
     <div>
       <h1>Sip Happens Café</h1>
@@ -25,7 +36,11 @@ export const App = () => {
         Please leave your feedback about our service by selecting one of the
         options below.
       </p>
-      <Options onFeedback={handleFeedback} />
+      <Options
+        onFeedback={handleFeedback}
+        onReset={handleReset}
+        hasFeedback={totalFeedback}
+      />
       <Feedback feedbackTypes={feedbackTypes} />
     </div>
   );
